@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<!-- <h1>SignUp </h1> -->
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <input class="text" type="text" name="Username" placeholder="Username" required="" formControlName="username"
+                        [ngClass]="{ 'is-invalid': submitted && f['username'].errors }">
+                        <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+                            <div *ngIf="f['username'].errors['required']">Username is required</div>
+                            <div *ngIf="f['username'].errors['minlength']">
+                              Username must be at least 6 characters
+                            </div>
+                            <div *ngIf="f['username'].errors['maxlength']">
+                              Username must not exceed 20 characters
+                            </div>
+                          </div>
+                        </div>
+                        <br>
+					<div class="form-group">
+                        <input class="text" type="password" name="password" placeholder="Password" required="" formControlName="password"
+                        class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
+                        <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                            <div *ngIf="f['password'].errors['required']">Password is required</div>
+                            <div *ngIf="f['password'].errors['minlength']">
+                              Password must be at least 6 characters
+                            </div>
+                            <div *ngIf="f['password'].errors['maxlength']">
+                              Username must not exceed 40 characters
+                            </div>
+                        </div>
+                        </div>
+					<!-- <div class="wthree-text">
+						<label class="anim">
+							<input type="checkbox" class="checkbox" required="">
+							<span>I Agree To The Terms & Conditions</span>
+						</label>
+						<div class="clear"> </div>
+					</div> -->
+					<input type="submit" value="LOGIN">
+				</form>
+				<p>Don't have an Account? <a routerLink="/signup"> Sign Up</a></p>
+			</div>
+		</div>
+		<!-- copyright -->
+		<div class="colorlibcopy-agile">
+            <p>© 2018 Colorlib Signup Form. All rights reserved | Design by <a href="https://google.com/" target="_blank">Kanhaiya Gupta</a></p>
+		</div>
+		<!-- //copyright -->
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<!-- //main -->
+</body>
+</html>

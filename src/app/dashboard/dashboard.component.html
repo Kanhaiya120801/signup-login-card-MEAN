@@ -1,0 +1,72 @@
+<app-navbar></app-navbar>
+
+<div class="content-container">
+
+    <div class="container-fluid">
+
+        <!-- Main component for a primary marketing message or call to action -->
+        <div class="jumbotron">
+        <h2 style="color: black; text-align: center; font-weight: 1000;" >Manage Profile</h2>
+
+            <div class="container rounded bg-white mt-5">
+
+                <form  [formGroup]="profileForm" *ngIf="profileForm"  (ngSubmit)="onSubmit()">
+                    <div class="row">
+
+                        <div class="col-md-4 border-right">
+                            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                <!-- <a href="http://localhost:4200/data:image/jpeg;base64,{{profileForm.value.aadhar}}" target="_blank"> -->
+                                
+                                    <img
+                                    class="rounded-circle mt-5" alt="user_image" src="data:image/jpeg;base64,{{profileForm.value.aadhar}}" width="340">
+                                   
+                                    <!-- </a> -->
+                                <span
+                                    class="font-weight-bold">{{profileForm.value.fullname}}</span><span
+                                    class="text-black-50">{{profileForm.value.email}}</span></div>
+                                    <div >
+                                        <input class="text" type="file" name="aadhar" placeholder="Aahar Card"
+                                        (change)="onFileSelect($event)" #UploadFileInput>
+                                    </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="p-3 py-5">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="d-flex flex-row align-items-center back"><i
+                                            class="fa fa-long-arrow-left mr-1 mb-1"></i>
+                                        <h6>Back to home</h6>
+                                    </div>
+                                    <!-- <h6 class="text-right">Edit Profile</h6> -->
+                                </div>
+                                <div class="row mt-2">
+                                    <label style="margin: 12px; font-weight: bold;" >Full Name</label>
+                                    <div class="col-md-12"><input type="text" class="form-control" formControlName="fullname"
+                                            placeholder="Full name" ></div>
+                                </div>
+                                <div class="row mt-3">
+                                    <label style="margin: 12px;  font-weight: bold;">Email Address</label>
+                                    <div class="col-md-12"><input type="email" class="form-control" placeholder="Email" formControlName="email" 
+                                            ></div>
+                                </div>
+                                <div class="row mt-3">
+                                    <label style="margin: 12px; font-weight: bold;">User name</label>
+                                    <div class="col-md-12"><input type="text" class="form-control" placeholder="User name" formControlName="username" 
+                                            ></div>
+                                </div>
+                                <div class="row mt-3">
+                                    <label style="margin: 12px; font-weight: bold;">Password</label>
+                                    <div class="col-md-12"><input type="text" class="form-control" formControlName="password" 
+                                            placeholder="Password"></div>
+                                </div>
+                                <div class="mt-5 text-right"><button class="btn btn-primary profile-button"
+                                        type="submit">Update Profile</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <p style="color: red;" *ngIf="!profileForm">No data Found!!</p>
+            </div>
+        </div>
+
+    </div>
+</div>

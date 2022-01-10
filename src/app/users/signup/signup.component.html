@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<!-- <h1>SignUp </h1> -->
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+					<input class="text" type="text" name="Username" placeholder="Username" required="" formControlName="username"
+                    [ngClass]="{ 'is-invalid': submitted && f['username'].errors }">
+                    <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+                        <div *ngIf="f['username'].errors['required']">Username is required</div>
+                        <div *ngIf="f['username'].errors['minlength']">
+                          Username must be at least 6 characters
+                        </div>
+                        <div *ngIf="f['username'].errors['maxlength']">
+                          Username must not exceed 20 characters
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+					<input class="text email" type="email" name="email" placeholder="Email" required="" formControlName="email"
+                    class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                        <div *ngIf="f['email'].errors['required']">Email is required</div>
+                        <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+					<input class="text" type="password" name="password" placeholder="Password" required="" formControlName="password"
+                    class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
+                    <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                        <div *ngIf="f['password'].errors['required']">Password is required</div>
+                        <div *ngIf="f['password'].errors['minlength']">
+                          Password must be at least 6 characters
+                        </div>
+                        <div *ngIf="f['password'].errors['maxlength']">
+                          Username must not exceed 40 characters
+                        </div>
+                    </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+					<input class="text" type="text" name="fullName" placeholder="Full Name" required="" formControlName="fullname"
+                    [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }">
+                    <div *ngIf="submitted && f['fullname'].errors" class="invalid-feedback">
+                        <div *ngIf="f['fullname'].errors['required']">Fullname is required</div>
+                      </div>
+                    </div>
+                    <br>
+					<label style="color: white;">Image
+                        <input class="text" type="file" name="aadhar" placeholder="Aahar Card"
+                        (change)="onFileSelect($event)" #UploadFileInput>
+                    </label>
+                    <br><br>
+					<div class="wthree-text">
+						<label class="anim">
+							<input type="checkbox" class="checkbox" required="" formControlName="acceptTerms"
+                            [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }">
+							<span>  I Agree To The Terms & Conditions</span>
+                            <div *ngIf="submitted && f['acceptTerms'].errors" class="invalid-feedback">
+                                Accept Terms is required
+                              </div>
+						</label>
+						<div class="clear"> </div>
+					</div>
+					<input type="submit" value="SIGNUP">
+				</form>
+				<p>I have an Account? <a routerLink="/login"> Login Now!</a></p>
+			</div>
+		</div>
+		<!-- copyright -->
+		<div class="colorlibcopy-agile">
+			<p>© 2018 Colorlib Signup Form. All rights reserved | Design by <a href="https://google.com/" target="_blank">Kanhaiya Gupta</a></p>
+		</div>
+		<!-- //copyright -->
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<!-- //main -->
+</body>
+</html>

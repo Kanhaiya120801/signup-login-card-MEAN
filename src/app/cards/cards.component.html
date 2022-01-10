@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+
+<div class="content-container">
+
+    <div class="container-fluid">
+
+        <!-- Main component for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <section class="pt-5 pb-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3 class="mb-3">Carousel cards title </h3>
+                        </div>
+                        <div class="col-12">
+                            <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="row">
+
+                                            <div class="col-md-4 mb-3" *ngFor="let card of cards | slice:0:show; let i=index">
+                                                <div class="card">
+                                                    <img class="img-fluid" alt="100%x280"
+                                                        src={{card.image}}>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">{{card.title}}</h4>
+                                                        <p class="card-text">{{card.description}}</p>
+
+                                                    </div>
+                                                    <!-- <button *ngIf="i==2 && show == 3" (click)="show = cards.length">More</button> -->
+                                                </div>
+                                            </div>
+                                            <div *ngIf="show < cards.length" ><button (click)="increaseShow()" class="btn btn-primary">Load More</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+</div>
